@@ -69,7 +69,7 @@ future_fechas = pd.date_range(start='2024-07-01', periods=13, freq='M')[1:]
 future_data = pd.DataFrame({
     'Fecha': future_fechas,
     'Rendimiento_PENSIONISSSTE': np.random.uniform(4.5, 6.5, 12),
-    'Comision_PENSIONISSSTE': np.random.uniform(0.9, 1.1, 12)
+    'Comision_PENSIONISSSTE': np.random.uniform(0.45, 1.1, 12)
 })
 future_data['Prediccion_Afiliados'] = modelo_gb.predict(scaler.transform(future_data[['Rendimiento_PENSIONISSSTE', 'Comision_PENSIONISSSTE']]))
 
