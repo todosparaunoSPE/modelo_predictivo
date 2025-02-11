@@ -109,7 +109,7 @@ with st.sidebar:
 
 # Sliders interactivos
 rendimiento_input = st.slider("Rendimiento PENSIONISSSTE (%)", 4.5, 6.5, 5.5, 0.1)
-comision_input = st.slider("Comisión PENSIONISSSTE (%)", 0.9, 1.1, 1.0, 0.01)
+comision_input = st.slider("Comisión PENSIONISSSTE (%)", 0.45, 1.1, 1.0, 0.01)
 
 # Aplicar cambios en el modelo
 nuevo_dato = pd.DataFrame({'Rendimiento_PENSIONISSSTE': [rendimiento_input], 'Comision_PENSIONISSSTE': [comision_input]})
