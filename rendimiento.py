@@ -15,7 +15,6 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
 from sklearn.preprocessing import StandardScaler
 
-
 # Estilo de fondo
 page_bg_img = """
 <style>
@@ -76,6 +75,15 @@ future_data['Prediccion_Afiliados'] = modelo_gb.predict(scaler.transform(future_
 # Interfaz en Streamlit
 st.title("📊 Modelo Predictivo de Competitividad - PENSIONISSSTE")
 st.write("Este modelo predice la evolución de afiliados en función de rendimientos y comisiones.")
+
+# Botón de descarga PDF
+with open("proyecto_simulado_1.pdf", "rb") as pdf_file:
+    st.download_button(
+        label="Descargar Explicación Matemática (PDF)",
+        data=pdf_file,
+        file_name="proyecto_simulado_1.pdf",
+        mime="application/pdf"
+    )
 
 # Sidebar de ayuda
 with st.sidebar:
@@ -140,10 +148,3 @@ st.subheader("Predicción de Afiliados a Futuro")
 fig_future = px.line(future_data, x='Fecha', y='Prediccion_Afiliados', title="Predicción de Afiliados de Julio 2024 a Julio 2025")
 st.plotly_chart(fig_future)
 
-# Pie de página con "Desarrollado por" y copyright
-#st.markdown("""
-#    ---
-#    ### Desarrollado por: Javier Horacio Pérez Ricárdez
-#    © 2025 Todos los derechos reservados.
-#""", unsafe_allow_html=True)
-#)
